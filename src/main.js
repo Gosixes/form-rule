@@ -7,7 +7,7 @@ import Element from "element-ui"
 import "element-ui/lib/theme-chalk/index.css";
 Vue.use(Element)
 
-import formRule from '@/form-rule/index'
+import formRule from '@/form-rule-v2/index'
 Vue.use(formRule)
 
 new Vue({

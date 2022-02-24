@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    
-    <el-form ref="form" :model="form" label-width="100px" label-position="left" 
+
+    <el-form ref="form" :model="form" label-width="100px" label-position="left"
       :rules="rules2">
-      <el-form-item label="用户名" prop="username">
+      <el-form-item label="机构编码" prop="username">
         <el-input v-model="form.username"></el-input>
       </el-form-item>
-      <el-form-item label="姓名" prop="name">
+      <el-form-item label="中文名称" prop="name">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="password">
@@ -19,8 +19,6 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
   data() {
@@ -28,12 +26,12 @@ export default {
       form: {},
       rules: {
         username: [
-          {required: true, message: '请输入用户名', trigger: 'blur'}
+          {required: true, message: '请输入用户名', trigger: 'blur'},
         ]
       },
-      rules2: this.$createRule({
-        username: ['required', 'username'],
-        name: ['required', 'length:3,10']
+      rules2: this.$fdCreateRule({
+        username: 'orgCode',
+        name: 'chName'
       })
     }
   },
