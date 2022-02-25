@@ -1,4 +1,4 @@
-import {isObject, merge} from './utils'
+import {isArray, isObject, merge} from './utils'
 import ruleMap from './rules/index'
 
 function getRuleItemFromObj(ruleObj) {
@@ -36,6 +36,8 @@ export function createRule(option) {
       result[item] = getRuleItemFromObj(ruleOpt)
     } else if (isObject(ruleDef)) {
       result[item] = getRuleItemFromObj(ruleDef)
+    } else if (isArray(ruleDef)) {
+      result[item] = ruleDef
     } else {
       throw new Error('Rule definition format is incorrect.')
     }

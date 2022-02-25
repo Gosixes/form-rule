@@ -49,7 +49,7 @@ this.$fdCreateRule({
 rule可以使用Object的形式定义
 ```javascript
 this.$fdCreateRule({
-	username: {
+    username: {
       rule: 'userName',
       required: false,
       fieldChName: '自定义的名字',
@@ -62,6 +62,17 @@ Object定义的形式中：rule为必填，代表使用的规则名称。
 required可以覆盖是否必填的默认选项。
 fieldChName可以覆盖该字段的中文名称。内部提示语为 请输入xxx,使用此配置可以将xxx换成自定义的内容。
 params可以设置该规则的一些参数。
+
+同时支持原有elementui的rule定义方式
+```javascript
+this.$fdCreateRule({
+    username: 'userName',
+    password: [
+      {required: true, message: '请输入密码'}
+    ]
+})
+// 如上，password的定义是一个数组，此时不做任何处理，即password使用传入的定义方式
+```
 
 // 更多规则待添加
 
