@@ -30,8 +30,8 @@ export default {
         ]
       },
       rules2: this.$fdCreateRule({
-        username: 'orgCode',
-        name: 'chName'
+        username: 'ORG_OrgCode',
+        name: 'ORG_ChName'
       })
     }
   },

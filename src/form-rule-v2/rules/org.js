@@ -121,8 +121,8 @@ const chNameSchema = {
 
 
 export default {
-  orgCode: orgCodeSchema,
-  leiCode: leiCodeSchema,
-  chName: chNameSchema,
-  enName: ''
+  ORG_OrgCode: orgCodeSchema,
+  ORG_LeiCode: leiCodeSchema,
+  ORG_ChName: chNameSchema,
+  ORG_EnName: '',
 }
