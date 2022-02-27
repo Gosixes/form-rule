@@ -1,11 +1,16 @@
 {
   "name": "form-rule",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "private": false,
+  "main": "dist/form-rule.umd.min.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build  --target lib --entry src/form-rule-v2/index.js --name form-rule"
   },
   "dependencies": {
     "core-js": "^3.6.5",
