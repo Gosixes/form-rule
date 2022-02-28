@@ -18,7 +18,7 @@ export default {
     return {
       form: {},
       rules: this.$fdCreateRule({
-        username: {rule: 'ORG_ChName', required: true, fieldChName: '自定义中文名'}
+        username: {rule: 'USER_Username', required: true, fieldChName: '自定义中文名', params: '2,20'}
       }),
 
       originRules: {

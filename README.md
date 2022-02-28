@@ -29,6 +29,9 @@ rules: this.$fDcreateRule({
 ## 2、使用
 
 ```javascript
+// npm 安装
+npm i form-rule
+
 // 在main.js中
 import formRule from 'xxx'
 Vue.use(formRule)

@@ -3,6 +3,9 @@ import {isEmpty} from '../utils'
 
 // 机构编码规则
 const orgCodeValidator = (rule, value, callback) => {
+  if (isEmpty(value)) {
+    return
+  }
   if (commonLetterAndNum(value)) {
     callback()
   } else {
@@ -39,47 +42,10 @@ const orgCodeSchema = {
   }
 }
 
-// LEI编码规则
-const leiCodeValidator = (rule, value, callback) => {
-  if (commonLetterAndNum(value)) {
-    callback()
-  } else {
-    callback(new Error(`请输入正确的{LEI编码}${rule.fieldChName}`))
-  }
-}
-const leiCodeSchema = {
-  opt: {
-    // 默认值
-    fieldChName: 'LEI编码',
-    required: true,
-    params: undefined
-  },
-  genRule: function (opt) {
-    const arr = []
-    if (opt.required === true) {
-      arr.push({
-        required: true,
-        message: `请输入${opt.fieldChName}`,
-        trigger: 'blur'
-      })
-    }
-    arr.push({
-      fieldChName: opt.fieldChName,
-      validator: leiCodeValidator,
-      trigger: 'blur'
-    })
-    arr.push({
-      max: param1,
-      message: `${opt.fieldChName}最多输入${param1}位字符`
-    })
-    return arr
-  }
-}
-
 // 中文名称
 const chNameValidator = (rule, value, callback) => {
   if (isEmpty(value)) {
-    return true
+    return
   }
   const reg = /^[\u4E00-\u9FA5a-z0-9()\s（）\[\]【】+-—_,]+$/
   if (reg.test(value)) {
@@ -122,7 +88,7 @@ const chNameSchema = {
 // 英文名称
 const enNameValidator = (rule, value, callback) => {
   if (isEmpty(value)) {
-    return true
+    return
   }
   const reg = /^[a-z0-9()\s\[\]+-_,]+$/
   if (reg.test(value)) {
@@ -161,6 +127,42 @@ const enNameSchema = {
   }
 }
 
+// leicode
+const leiCodeValidator = (rule, value, callback) => {
+  if (isEmpty(value)) {
+    return
+  }
+  const reg = /^[a-zA-z0-9]{20}$/
+  if (reg.test(value)) {
+    callback()
+  } else {
+    callback(new Error(`请输入正确的${rule.fieldChName}`))
+  }
+}
+const leiCodeSchema = {
+  opt: {
+    // 默认值
+    fieldChName: 'LEI编码',
+    required: false,
+    params: undefined
+  },
+  genRule: function (opt) {
+    const arr = []
+    if (opt.required === true) {
+      arr.push({
+        required: true,
+        message: `请输入${opt.fieldChName}`,
+        trigger: 'blur'
+      })
+    }
+    arr.push({
+      fieldChName: opt.fieldChName,
+      validator: leiCodeValidator,
+      trigger: 'blur'
+    })
+    return arr
+  }
+}
 
 export default {
   ORG_OrgCode: orgCodeSchema,

@@ -2,10 +2,6 @@ import {isEmpty} from './utils'
 
 const en = /^[0-9]+$/;
 export const validateNumeric = value => {
-  if (isEmpty(value)) {
-    return true;
-  }
-
   const testValue = val => {
     const strValue = String(val);
     return en.test(strValue);
@@ -32,23 +28,16 @@ export const validateEmail = value => {
   return re.test(String(value));
 }
 
-export const validateZipcode = value => {
-
-}
-
-export const validateUsername = value => {
-  if (isEmpty(value)) {
-    return true
-  }
-  const reg = /^[a-zA-Z0-9]{2, 20}$/
+// 常用字母和数字
+export const commonLetterAndNum = (value, length = '+') => {
+  const reg = RegExp(`^[a-zA-Z0-9]${length}$`)
   return reg.test(value)
 }
 
-
-export const commonLetterAndNum = value => {
-  if (isEmpty(value)) {
-    return true
+// not blank
+export const notBlank = value => {
+  if (value.trim().length === 0) {
+    return false
   }
-  const reg = /^[a-zA-Z0-9]+$/
-  return reg.test(value)
+  return true
 }
