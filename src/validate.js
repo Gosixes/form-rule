@@ -41,3 +41,14 @@ export const notBlank = value => {
   }
   return true
 }
+
+export const notBlankValidator = (rule, value, callback) => {
+  if (value === null || value === undefined) {
+    return callback(new Error(''))
+  }
+  if (notBlank(value)) {
+    callback()
+  } else {
+    callback(new Error(''))
+  }
+}

@@ -1,4 +1,4 @@
-import {isEmpty} from '@/utils'
+import {isEmpty} from '../utils'
 
 // 11位手机号
 const mobileValidator = (rule, value, callback) => {

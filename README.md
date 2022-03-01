@@ -19,7 +19,7 @@ rules: {
 
 ```javascript
 // 而ruleBundle是指，将固定的验证规则聚合起来
-rules: this.$fDcreateRule({
+rules: this.$fdcreateRule({
   username: 'userName' // 相当于username这个字段，使用userName的校验规则
 })
 ```

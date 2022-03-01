@@ -1,5 +1,5 @@
 import {isEmpty} from '../utils'
-import {notBlank} from '../validate'
+import {notBlank, notBlankValidator} from '../validate'
 
 // 11位手机号
 const mobileValidator = (rule, value, callback) => {
