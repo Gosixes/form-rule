@@ -1,5 +1,5 @@
 import {isArray, isObject, merge} from './utils'
-import ruleMap from './rules'
+import ruleMap from './rules/index.js'
 
 function getRuleItemFromObj(ruleObj) {
   const ruleSchema = ruleMap[ruleObj.rule]
